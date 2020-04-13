@@ -24,6 +24,7 @@ Here are the configuration options for PSEasyPostTracker component:
 | Tracking ID Field API Name  | The field API name to use to retrieve the tracking number |
 | Carrier Field API Name | The field API name to retrieve the carrier name |
 | Show Tracking Details | Boolean/checkbox field to show tracking data/time details by default. Showing details can be toggled by clicking on progress bar or delivery date areas |
+| Handler Class Name | [Optional] Name of Apex class that implement PSEasyPostHandlerInterface (used for customized logic) |
 
 And here is a sample configuration for a PSEasyPostTracker:
 
@@ -36,7 +37,7 @@ Here are steps to setup and configure this component:
      - Note down your production and test API keys.
   * Install the PSEasyPostTracker component per the __Deploy to Salesforce__ button below. 
   * Next we need to configure your API keys that you retrieved above. 
-    - Go to __Setup > Custom Code > Customer Metadata Types__ and select __Manage Records__ next to the __"EasyPost"__ entry.
+    - Go to __Setup > Custom Code > Customer Metadata Types__ and select __Manage Records__ next to the __"PSEasyPostTracker"__ entry.
     - Click New and create a new entry named __"EasyPost"__ (it must be named this exactly) and enter your production and test API keys.
   * For the SObject that you will place this component on, create two custom fields (these can be named whatever you like as you reference them in the component configuration):
     - __Carrier field__ - create a picklist field with following values (UPS, FedEx, USPS, DHL). EasyPost supports many more but I've mainly used FedEx and UPS for my testing.
