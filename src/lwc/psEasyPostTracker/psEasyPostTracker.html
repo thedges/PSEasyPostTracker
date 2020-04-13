@@ -1,0 +1,140 @@
+<template>
+    <div class="slds-card slds-p-around_xxx-small">
+    
+        <template if:true={error}>
+            <div class="pt-4" style="height: 100px; text-align: center;">
+                <span style="color: red;font-weight: bold;">{errorMsg}</span>
+            </div>
+        </template>
+
+        <template if:true={initializing}>
+            <div style="height: 100px;">
+                <div class="mt-1" style="text-align: center;">
+                    <strong>{loadingMessage}</strong>
+                </div>
+                <div>
+                    <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                </div>
+            </div>
+        </template>
+        <template if:true={ready}>
+            <div class="mainContainer">
+                <div id="content-block" class="slds-p-top_medium" onclick={onProgressClick}>
+
+                    <div id="tracker-success-content">
+                        <div class="">
+                            <div class="row">
+                                <div class="col-10 col-md-8 col-lg-6 mx-auto">
+                                    <div class="tracker-progress-bar tracker-progress-bar-with-dots">
+                                        <div class="progress">
+                                            <div class={data.progressClass} style={data.progressStyle}></div>
+                                        </div>
+
+                                        <div class={data.dotClass}>
+                                            <span class={data.preTransitDotClass}></span>
+
+                                            <span class={data.preTransitClass}>
+                                                Pre-Transit
+                                            </span>
+                                            <span class={data.inTransitDotClass}></span>
+                                            <span class={data.inTransitClass}>
+                                                In Transit
+                                            </span>
+
+                                            <span class={data.outForDeliveryDotClass}></span>
+                                            <span class={data.outForDeliveryClass}>
+                                                Out for Delivery
+                                            </span>
+
+                                            <span class={data.deliveredDotClass}></span>
+                                            <span class={data.deliveredClass}>
+                                                Delivered
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row tracker-top-level text-center mb-3">
+                    <div class="col-md pb-6 pb-md-0 est-delivery-date-container"  onclick={onProgressClick}>
+                        <div class="text-muted">
+                            {data.deliveryLabel}
+                        </div>
+                        <h1 class={data.deliveryDateClass}>{data.deliveryDate}</h1>
+                    </div>
+
+                    <div class="col-md">
+                        <div class={data.carrierStyle}></div>
+                        <div class="tracking-code text-secondary text-truncate font-weight-bold font-size-h5">
+                            {data.trackId}
+                        </div>
+                        <!-- <div class="alert alert-info mt-2 m-0 py-1">FedEx times are in the UTC (not local) time zone.</div> -->
+                        <div class="alert alert-info mt-2 m-0 py-1">{data.carrier} times are in local time zone.</div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="my-1"  onclick={onProgressClick}>
+                    <p class="small text-right">
+                        <span class="text-muted mr-1">Last Updated:</span>
+                        <strong>{data.lastUpdated}</strong>
+                        <img class="ml-1 pb-1" src={refreshIcon} height="15" width="15" onclick={refresh} />
+                    </p>
+
+                    <template if:true={showDetails}>
+
+                    <div class="row">
+                        <div class="col-md">
+
+                            <ul class="tracking-details list-unstyled border border-light">
+
+                                <template for:each={data.trackingDetails} for:item="td">
+                                    <template if:true={td.header}>
+                                        <li class="px-3 py-2 mb-2 font-weight-bold bg-gray-100 text-secondary"
+                                            key={td.num}>
+                                            {td.info}
+                                        </li>
+                                    </template>
+
+                                    <template if:false={td.header}>
+                                        <li class="d-flex align-items-center mb-2" key={td.num}>
+                                            <div class="tracking-details-time text-gray-300 font-size-h5 text-right">
+                                                {td.time}
+                                            </div>
+                                            <div class={td.iconClass}></div>
+                                            <div>
+                                                <div class="font-size-h6">
+                                                    <strong>{td.msg}</strong>
+                                                </div>
+                                                <div class="text-gray-300">
+                                                    {td.location}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </template>
+                                </template>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </template>
+
+                </div>
+            </div>
+            <div class="controlDiv">
+                <div class="imageDiv">
+                    <!--
+                    <img src={refreshIcon} height="20" width="20" onclick={refresh} />
+                    -->
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

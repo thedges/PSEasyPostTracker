@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PSEasyPostController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>EasyPost__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>psEasyPostTracker</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>EasyPostAPI</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    <types>
+        <members>PSEasyPost</members>
+        <name>StaticResource</name>
+    </types>
+    <version>48.0</version>
+</Package>
