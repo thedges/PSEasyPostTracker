@@ -16,6 +16,7 @@
             <property name="trackFieldName" type="String" label="Tracking ID Field API Name"/>
             <property name="carrierFieldName" type="String" label="Carrier Field API Name"/>
             <property name="showDetails" type="Boolean" label="Show tracking details?"/>
+            <property name="handlerName" type="String" label="Handler implementation class name"/>
             <supportedFormFactors>
                 <supportedFormFactor type="Small" />
                 <supportedFormFactor type="Large" />
