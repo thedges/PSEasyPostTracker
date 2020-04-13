@@ -2,6 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>PSEasyPostController</members>
+        <members>PSEasyPostHandlerInterface</members>
+        <members>PSEasyPostTestHandler</members>
         <name>ApexClass</name>
     </types>
     <types>
