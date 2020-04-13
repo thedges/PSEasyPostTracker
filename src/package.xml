@@ -11,6 +11,10 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>PSEasyPostTracker__mdt-EasyPost Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>psEasyPostTracker</members>
         <name>LightningComponentBundle</name>
     </types>

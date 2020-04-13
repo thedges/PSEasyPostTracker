@@ -35,6 +35,7 @@ export default class PsEasyPostTracker extends LightningElement {
     var self = this;
 
     Promise.all ([
+      loadStyle (this, APP_RESOURCES + '/bootstrap-ns.css'),
       loadStyle (this, APP_RESOURCES + '/clientCSS.css'),
       loadStyle (this, APP_RESOURCES + '/css/all.css'),
       loadScript (this, APP_RESOURCES + '/moment.min.js'),
@@ -108,51 +109,51 @@ export default class PsEasyPostTracker extends LightningElement {
         info.deliveryDate = '';
       }
 
-      info.progressClass = 'progress-bar bg-secondary';
-      info.dotClass = 'secondary';
-      info.deliveryDateClass = 'est-delivery-date text-secondary';
+      info.progressClass = 'twbs progress-bar bg-secondary';
+      info.dotClass = 'twbs secondary';
+      info.deliveryDateClass = 'twbs est-delivery-date text-secondary';
 
-      info.preTransitDotClass = 'dot state-0';
+      info.preTransitDotClass = 'twbs dot state-0';
       info.inTransitDotClass = '';
       info.outForDeliveryDotClass = '';
       info.deliveredDotClass = '';
 
       if (resp.status == 'in_transit') {
         info.progressStyle = 'width: 33%;';
-        info.preTransitClass = 'state-label state-0 past-state';
-        info.inTransitClass = 'state-label state-1 current-state';
-        info.outForDeliveryClass = 'state-label state-2 future-state';
-        info.deliveredClass = 'state-label state-3 future-state';
-        info.inTransitDotClass = 'dot state-1';
+        info.preTransitClass = 'twbs state-label state-0 past-state';
+        info.inTransitClass = 'twbs state-label state-1 current-state';
+        info.outForDeliveryClass = 'twbs state-label state-2 future-state';
+        info.deliveredClass = 'twbs state-label state-3 future-state';
+        info.inTransitDotClass = 'twbs dot state-1';
       } else if (resp.status == 'out_for_delivery') {
         info.progressStyle = 'width: 66%;';
-        info.preTransitClass = 'state-label state-0 past-state';
-        info.inTransitClass = 'state-label state-1 past-state';
-        info.outForDeliveryClass = 'state-label state-2 current-state';
-        info.deliveredClass = 'state-label state-3 future-state';
-        info.inTransitDotClass = 'dot state-1';
-        info.outForDeliveryDotClass = 'dot state-2';
+        info.preTransitClass = 'twbs state-label state-0 past-state';
+        info.inTransitClass = 'twbs state-label state-1 past-state';
+        info.outForDeliveryClass = 'twbs state-label state-2 current-state';
+        info.deliveredClass = 'twbs state-label state-3 future-state';
+        info.inTransitDotClass = 'twbs dot state-1';
+        info.outForDeliveryDotClass = 'twbs dot state-2';
       } else if (resp.status == 'delivered') {
         info.progressStyle = 'width: 100%;';
-        info.preTransitClass = 'state-label state-0 past-state';
-        info.inTransitClass = 'state-label state-1 past-state';
-        info.outForDeliveryClass = 'state-label state-2 past-state';
-        info.deliveredClass = 'state-label state-3 current-state';
-        info.progressClass = 'progress-bar bg-success';
-        info.dotClass = 'success';
-        info.deliveryDateClass = 'est-delivery-date text-success';
-        info.inTransitDotClass = 'dot state-1';
-        info.outForDeliveryDotClass = 'dot state-2';
-        info.deliveredDotClass = 'dot state-3';
+        info.preTransitClass = 'twbs state-label state-0 past-state';
+        info.inTransitClass = 'twbs state-label state-1 past-state';
+        info.outForDeliveryClass = 'twbs state-label state-2 past-state';
+        info.deliveredClass = 'twbs state-label state-3 current-state';
+        info.progressClass = 'twbs progress-bar bg-success';
+        info.dotClass = 'twbs success';
+        info.deliveryDateClass = 'twbs est-delivery-date text-success';
+        info.inTransitDotClass = 'twbs dot state-1';
+        info.outForDeliveryDotClass = 'twbs dot state-2';
+        info.deliveredDotClass = 'twbs dot state-3';
       } else {
         info.progressStyle = 'width: 0%;';
-        info.preTransitClass = 'state-label state-0 current-state';
-        info.inTransitClass = 'state-label state-1 future-state';
-        info.outForDeliveryClass = 'state-label state-2 future-state';
-        info.deliveredClass = 'state-label state-3 future-state';
+        info.preTransitClass = 'twbs state-label state-0 current-state';
+        info.inTransitClass = 'twbs state-label state-1 future-state';
+        info.outForDeliveryClass = 'twbs state-label state-2 future-state';
+        info.deliveredClass = 'twbs state-label state-3 future-state';
       }
 
-      info.carrierStyle = 'mb-2 carrier-img mt-6 mt-md-0 ' + resp.carrier;
+      info.carrierStyle = 'twbs mb-2 carrier-img mt-6 mt-md-0 ' + resp.carrier;
 
       info.status = resp.status;
       info.statusDetail = resp.status_detail;
@@ -205,19 +206,19 @@ export default class PsEasyPostTracker extends LightningElement {
         trackItem.msg = tr.message;
         trackItem.num = num++;
 
-        trackItem.iconClass = 'font-size-h3 px-3 px-lg-4 far fa-circle';
+        trackItem.iconClass = 'twbs font-size-h3 px-3 px-lg-4 far fa-circle';
         if (tr.status == 'pre_transit' && tr.status_detail == 'label_created') {
           trackItem.iconClass =
-            'font-size-h3 px-3 px-lg-4 fas fa-barcode text-secondary';
+            'twbs font-size-h3 px-3 px-lg-4 fas fa-barcode text-secondary';
         } else if (
           tr.status == 'out_for_delivery' &&
           tr.status_detail == 'out_for_delivery'
         ) {
           trackItem.iconClass =
-            'font-size-h3 px-3 px-lg-4 far fa-clock text-secondary';
+            'twbs font-size-h3 px-3 px-lg-4 far fa-clock text-secondary';
         } else if (tr.status == 'delivered') {
           trackItem.iconClass =
-            'font-size-h3 px-3 px-lg-4 far fa-check-circle text-success';
+            'twbs font-size-h3 px-3 px-lg-4 far fa-check-circle text-success';
         }
 
         if (tr.tracking_location.city != null) {

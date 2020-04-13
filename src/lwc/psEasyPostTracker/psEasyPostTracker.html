@@ -1,6 +1,5 @@
 <template>
     <div class="slds-card slds-p-around_xxx-small">
-    
         <template if:true={error}>
             <div class="pt-4" style="height: 100px; text-align: center;">
                 <span style="color: red;font-weight: bold;">{errorMsg}</span>
@@ -23,10 +22,10 @@
 
                     <div id="tracker-success-content">
                         <div class="">
-                            <div class="row">
-                                <div class="col-10 col-md-8 col-lg-6 mx-auto">
-                                    <div class="tracker-progress-bar tracker-progress-bar-with-dots">
-                                        <div class="progress">
+                            <div class="twbs row">
+                                <div class="twbs col-10 col-md-8 col-lg-6 mx-auto">
+                                    <div class="twbs tracker-progress-bar tracker-progress-bar-with-dots">
+                                        <div class="twbs progress">
                                             <div class={data.progressClass} style={data.progressStyle}></div>
                                         </div>
 
@@ -59,60 +58,62 @@
                     </div>
                 </div>
 
-                <div class="row tracker-top-level text-center mb-3">
-                    <div class="col-md pb-6 pb-md-0 est-delivery-date-container"  onclick={onProgressClick}>
-                        <div class="text-muted">
+                <div class="twbs container">
+                <div class="twbs row tracker-top-level text-center mb-3">
+                    <div class="twbs col-md pb-6 pb-md-0 est-delivery-date-container"  onclick={onProgressClick}>
+                        <div class="twbs text-muted">
                             {data.deliveryLabel}
                         </div>
                         <h1 class={data.deliveryDateClass}>{data.deliveryDate}</h1>
                     </div>
 
-                    <div class="col-md">
+                    <div class="twbs col-md">
                         <div class={data.carrierStyle}></div>
-                        <div class="tracking-code text-secondary text-truncate font-weight-bold font-size-h5">
+                        <div class="twbs tracking-code text-secondary text-truncate font-weight-bold font-size-h5">
                             {data.trackId}
                         </div>
-                        <!-- <div class="alert alert-info mt-2 m-0 py-1">FedEx times are in the UTC (not local) time zone.</div> -->
-                        <div class="alert alert-info mt-2 m-0 py-1">{data.carrier} times are in local time zone.</div>
+                        
+                        <div class="twbs alert alert-info mt-2 m-0 py-1">{data.carrier} times are in local time zone.</div>
 
                     </div>
 
 
                 </div>
+            </div>
 
-                <div class="my-1"  onclick={onProgressClick}>
-                    <p class="small text-right">
-                        <span class="text-muted mr-1">Last Updated:</span>
+                <div class="twbs my-1"  onclick={onProgressClick}>
+                    <p class="twbs small text-right">
+                        <span class="twbs text-muted mr-1">Last Updated:</span>
                         <strong>{data.lastUpdated}</strong>
-                        <img class="ml-1 pb-1" src={refreshIcon} height="15" width="15" onclick={refresh} />
+                        <img class="twbs ml-1 pb-1" src={refreshIcon} height="15" width="15" onclick={refresh} />
                     </p>
 
                     <template if:true={showDetails}>
 
-                    <div class="row">
-                        <div class="col-md">
+                    <div class="twbs row">
+                        <div class="twbs col-md">
 
-                            <ul class="tracking-details list-unstyled border border-light">
+                            <ul class="twbs tracking-details list-unstyled border border-light">
 
                                 <template for:each={data.trackingDetails} for:item="td">
                                     <template if:true={td.header}>
-                                        <li class="px-3 py-2 mb-2 font-weight-bold bg-gray-100 text-secondary"
+                                        <li class="twbs px-3 py-2 mb-2 font-weight-bold bg-gray-100 text-secondary"
                                             key={td.num}>
                                             {td.info}
                                         </li>
                                     </template>
 
                                     <template if:false={td.header}>
-                                        <li class="d-flex align-items-center mb-2" key={td.num}>
-                                            <div class="tracking-details-time text-gray-300 font-size-h5 text-right">
+                                        <li class="twbs d-flex align-items-center mb-2" key={td.num}>
+                                            <div class="twbs tracking-details-time text-gray-300 font-size-h5 text-right">
                                                 {td.time}
                                             </div>
                                             <div class={td.iconClass}></div>
                                             <div>
-                                                <div class="font-size-h6">
+                                                <div class="twbs font-size-h6">
                                                     <strong>{td.msg}</strong>
                                                 </div>
-                                                <div class="text-gray-300">
+                                                <div class="twbs text-gray-300">
                                                     {td.location}
                                                 </div>
                                             </div>
@@ -136,5 +137,6 @@
                 </div>
             </div>
         </template>
+
     </div>
 </template>

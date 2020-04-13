@@ -1,30 +1,30 @@
-.text-secondary {
+.twbs .text-secondary {
   color: #2396fb !important;
 }
 
-.sk-three-bounce .sk-child,
-.progress .bg-secondary {
+.twbs .sk-three-bounce .sk-child,
+.twbs .progress .bg-secondary {
   background-color: #2396fb !important;
 }
 
-.tracker-progress-bar-with-dots .secondary .dot {
+.twbs .tracker-progress-bar-with-dots .secondary .dot {
   border-color: #2396fb;
 }
 
-.tracker-progress-bar-with-dots .success .dot {
+.twbs .tracker-progress-bar-with-dots .success .dot {
   border-color: #5cb85c;
 }
 
-.btn-secondary {
+.twbs .btn-secondary {
   border-color: #2396fb !important;
   background-color: #2396fb !important;
 }
-.btn-secondary:focus,
-.btn-secondary:not(:disabled):not(.disabled):active,
-.btn-secondary:focus:active {
+.twbs .btn-secondary:focus,
+.twbs .btn-secondary:not(:disabled):not(.disabled):active,
+.twbs .btn-secondary:focus:active {
   box-shadow: 0 0 0 2px rgba(35, 150, 251, 0.25) !important;
 }
-.btn-secondary:hover {
+.twbs .btn-secondary:hover {
   background-color: #047de7 !important;
 }
 
@@ -34,20 +34,20 @@
   box-shadow: none;
 }
 
-.my-6 {
+.twbs .my-6 {
   margin-bottom: 0em !important;
 }
 
-.mb-6 {
+.twbs .mb-6 {
   margin-bottom: 0em !important;
 }
 
-.tracking-details-time {
+.twbs .tracking-details-time {
   -ms-flex: 90px 0 0px;
   flex: 90px 0 0;
 }
 
-ul {
+.twbs ul {
   margin-bottom: 0rem;
 }
 
