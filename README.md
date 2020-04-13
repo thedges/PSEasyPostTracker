@@ -6,7 +6,7 @@ This package contains a demo Lightning component for showing package shipment de
 The focus of the component is to be added to a record page that has 2 fields to drive the component. One field the carrier name and other is the carrier tracking id. Below is sample of the component in action.
 
 ![alt text](https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTracker.gif "PSEasyPostTracker")
-<img src="https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTracker.gif" height="42" width="42"></img>
+
 
 # Dependency
 
@@ -28,6 +28,7 @@ Here are the configuration options for PSEasyPostTracker component:
 And here is a sample configuration for a PSWheelTemplate:
 
 ![alt text](https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png "PSEasyPostTrackerConfig")
+<img src="https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png" height="42" width="42"></img>
 
 # Setup Instructions
 Here are steps to setup and configure this component:
