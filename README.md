@@ -24,6 +24,7 @@ Here are the configuration options for PSEasyPostTracker component:
 | Tracking ID Field API Name  | The field API name to use to retrieve the tracking number |
 | Carrier Field API Name | The field API name to retrieve the carrier name |
 | Show Tracking Details | Boolean/checkbox field to show tracking data/time details by default. Showing details can be toggled by clicking on progress bar or delivery date areas |
+| Handler Class Name | [Optional] Name of Apex class that implement PSEasyPostHandlerInterface (used for customized logic) |
 
 And here is a sample configuration for a PSEasyPostTracker:
 
