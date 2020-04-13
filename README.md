@@ -31,7 +31,7 @@ And here is a sample configuration for a PSEasyPostTracker:
 
 # Setup Instructions
 Here are steps to setup and configure this component:
-  * Go to [EasyPost](https://www.easypost.com/) and sign up for an account.
+  * Go to [EasyPost](https://www.easypost.com/) and sign up for a free account.
      - Login to account in top-left of screen, click your username and select __API Keys__.
      - Note down your production and test API keys.
   * Install the PSEasyPostTracker component per the __Deploy to Salesforce__ button below. 
