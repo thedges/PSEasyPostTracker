@@ -28,7 +28,7 @@ Here are the configuration options for PSEasyPostTracker component:
 And here is a sample configuration for a PSWheelTemplate:
 
 ![alt text](https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png "PSEasyPostTrackerConfig")
-<img src="https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png" height="42" width="42"></img>
+<img src="https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png" height="300" />
 
 # Setup Instructions
 Here are steps to setup and configure this component:
