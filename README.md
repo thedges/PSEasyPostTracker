@@ -25,9 +25,8 @@ Here are the configuration options for PSEasyPostTracker component:
 | Carrier Field API Name | The field API name to retrieve the carrier name |
 | Show Tracking Details | Boolean/checkbox field to show tracking data/time details by default. Showing details can be toggled by clicking on progress bar or delivery date areas |
 
-And here is a sample configuration for a PSWheelTemplate:
+And here is a sample configuration for a PSEasyPostTracker:
 
-![alt text](https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png "PSEasyPostTrackerConfig")
 <img src="https://github.com/thedges/PSEasyPostTracker/blob/master/PSEasyPostTrackerConfig.png" height="300" />
 
 # Setup Instructions
