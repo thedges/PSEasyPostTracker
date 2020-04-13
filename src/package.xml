@@ -5,7 +5,7 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>EasyPost__mdt</members>
+        <members>PSEasyPostTracker__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
