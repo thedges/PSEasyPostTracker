@@ -11,19 +11,13 @@ export default class PsEasyPostTracker extends LightningElement {
   @api trackFieldName = '';
   @api carrierFieldName = '';
   @api showDetails = false;
+  @api handlerName = 'PSEasyPostTestHandler';
   @track initialized = false;
   @track data;
   @track errorMsg = null;
   refreshIcon = APP_RESOURCES + '/RefreshIcon.png';
 
-  /*
-  trackId = '125227396070';
-  //trackId = '770201085279';
-  carrier = 'FedEx';
-  */
 
-  //trackId = '1Z8Y87620390552177';
-  //carrier = 'UPS';
 
   get initializing() {
     return (this.errorMsg == null && this.initialized == false ? true : false);
@@ -80,8 +74,10 @@ export default class PsEasyPostTracker extends LightningElement {
 
   loadTrackerData () {
     return getTracker ({
+      recordId: this.recordId,
       trackId: this.trackId,
       carrier: this.carrier,
+      handlerName: this.handlerName
     })
     .then (result => {
       console.log ('data=' + result);

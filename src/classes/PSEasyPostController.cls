@@ -1,9 +1,10 @@
 global without sharing class PSEasyPostController {
     @AuraEnabled
-    global static String getTracker(String trackId, String carrier)
+    global static String getTracker(String recordId, String trackId, String carrier, String handlerName)
     {
-        EasyPost__mdt easyPostKeys = [SELECT Production_API_Key__c, Test_API_Key__c FROM EasyPost__mdt WHERE DeveloperName = 'EasyPost'];
+        PSEasyPostTracker__mdt easyPostKeys = [SELECT Production_API_Key__c, Test_API_Key__c FROM PSEasyPostTracker__mdt WHERE DeveloperName = 'EasyPost'];
         String apiKey;
+        
         if (trackId.startsWith('EZ'))
         {
           apiKey = easyPostKeys.Test_API_Key__c;
@@ -11,6 +12,7 @@ global without sharing class PSEasyPostController {
         else {
           apiKey = easyPostKeys.Production_API_Key__c;
         }
+        
 
         HttpRequest req = new HttpRequest();
         req.setEndpoint('https://api.easypost.com/v2/trackers');
@@ -31,8 +33,19 @@ global without sharing class PSEasyPostController {
 
         Http http = new Http();
         HTTPResponse res = http.send(req);
+        String body = res.getBody();
 
-        return res.getBody();
+        ////////////////////////////////////////////////////////
+        // dynamically invoke handler to do specialized logic //
+        ////////////////////////////////////////////////////////
+        if (handlerName != null)
+        {
+          Type t = Type.forName(handlerName);
+          PSEasyPostHandlerInterface h = (PSEasyPostHandlerInterface)t.newInstance();
+          h.process(recordId, body);
+        }
+
+        return body;
     }
 
     @AuraEnabled
