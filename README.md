@@ -37,10 +37,10 @@ Here are steps to setup and configure this component:
   * Install the PSEasyPostTracker component per the __Deploy to Salesforce__ button below. 
   * Next we need to configure your API keys that you retrieved above. 
     - Go to __Setup > Custom Code > Customer Metadata Types__ and select __Manage Records__ next to the __"EasyPost"__ entry.
-    - Click New and create a new entry named "EasyPost" and enter your production and test API keys.
+    - Click New and create a new entry named __"EasyPost"__ (it must be named this exactly) and enter your production and test API keys.
   * For the SObject that you will place this component on, create two custom fields (these can be named whatever you like as you reference them in the component configuration):
-    - Carrier field - create a picklist field with following values (UPS, FedEx, USPS, DHL). EasyPost supports many more but I've mainly used FedEx and UPS for my testing.
-    - Tracking ID field - create a text field to store the carrier tracking id
+    - __Carrier field__ - create a picklist field with following values (UPS, FedEx, USPS, DHL). EasyPost supports many more but I've mainly used FedEx and UPS for my testing.
+    - __Tracking ID field__ - create a text field to store the carrier tracking id
   * Edit the record page for the object you want to place the wheel component on. Drag the __PSEasyPostTracker__ component to area on the page. Configure the component per the above defined parameters.
   * That is it.
 
