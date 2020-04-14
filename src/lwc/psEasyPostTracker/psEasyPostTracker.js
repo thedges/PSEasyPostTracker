@@ -245,6 +245,18 @@ export default class PsEasyPostTracker extends LightningElement {
 
       this.dispatchEvent(new CustomEvent('refreshview'));
     }
+    else
+    {
+      this.errorMsg = 'Error occurred loading tracking data';
+      
+      const event = new ShowToastEvent ({
+        title: resp.code,
+        message: resp.error.message,
+        variant: 'error',
+        mode: 'pester',
+      });
+      this.dispatchEvent (event);
+    }
     });
     /*
       .catch (error => {
