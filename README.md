@@ -42,6 +42,7 @@ Here are steps to setup and configure this component:
   * For the SObject that you will place this component on, create two custom fields (these can be named whatever you like as you reference them in the component configuration):
     - __Carrier field__ - create a picklist field with following values (UPS, FedEx, USPS, DHL). EasyPost supports many more but I've mainly used FedEx and UPS for my testing.
     - __Tracking ID field__ - create a text field to store the carrier tracking id
+  * Assign the __PSEasyPostTracker__ permission set to any user that will utilize the component
   * Edit the record page for the object you want to place the wheel component on. Drag the __PSEasyPostTracker__ component to area on the page. Configure the component per the above defined parameters.
   * That is it.
 
