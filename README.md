@@ -44,6 +44,7 @@ Here are steps to setup and configure this component:
     - __Tracking ID field__ - create a text field to store the carrier tracking id
   * Assign the __PSEasyPostTracker__ permission set to any user that will utilize the component
   * Edit the record page for the object you want to place the wheel component on. Drag the __PSEasyPostTracker__ component to area on the page. Configure the component per the above defined parameters.
+  * Suggest to create visibility rule on the component to only show if you have a value for "Carrier" and "Tracking ID"
   * That is it.
 
 <a href="https://githubsfdeploy.herokuapp.com">
