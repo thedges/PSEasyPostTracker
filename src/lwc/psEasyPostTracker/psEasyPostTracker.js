@@ -1,6 +1,7 @@
-import {LightningElement, api, track} from 'lwc';
+import {LightningElement, api, track, wire} from 'lwc';
 import {loadStyle, loadScript} from 'lightning/platformResourceLoader';
 import {ShowToastEvent} from 'lightning/platformShowToastEvent';
+import {getRecord} from 'lightning/uiRecordApi';
 import APP_RESOURCES from '@salesforce/resourceUrl/PSEasyPost';
 import getRecordData from '@salesforce/apex/PSEasyPostController.getRecordData';
 import getTracker from '@salesforce/apex/PSEasyPostController.getTracker';
@@ -15,9 +16,31 @@ export default class PsEasyPostTracker extends LightningElement {
   @track initialized = false;
   @track data;
   @track errorMsg = null;
+  trackId = '';
+  carrier = '';
   refreshIcon = APP_RESOURCES + '/RefreshIcon.png';
 
+  //@wire(getRecord, { recordId: '$recordId', fields: ['Tracker_Number__c'] })
+  @wire(getRecord, { recordId: '$recordId', layoutTypes: ['Full'], modes: ['View'] })
+  wiredObject({ error, data }) {
+          console.log('record was updated');
 
+          if (data)
+          {
+            console.log('record_data=' + JSON.stringify(data));
+
+            console.log('carrier=' + this.carrier);
+            console.log('trackerId=' + this.trackId);
+            console.log('carrierFieldName=' + data.fields[this.carrierFieldName].value);
+            console.log('trackFieldName=' + data.fields[this.trackFieldName].value);
+
+            if (data.fields[this.carrierFieldName].value != this.carrier ||
+              data.fields[this.trackFieldName].value != this.trackId)
+            {
+              this.refresh();
+            }
+          }
+  }
 
   get initializing() {
     return (this.errorMsg == null && this.initialized == false ? true : false);
@@ -40,6 +63,10 @@ export default class PsEasyPostTracker extends LightningElement {
       loadStyle (this, APP_RESOURCES + '/css/all.css'),
       loadScript (this, APP_RESOURCES + '/moment.min.js'),
     ])
+    .then (() => {
+      return self.refresh ();
+    });
+    /*
       .then (() => {
         return self.loadRecordData ();
       })
@@ -49,6 +76,8 @@ export default class PsEasyPostTracker extends LightningElement {
       .catch (error => {
         self.handleError (error);
       });
+      */
+      
   }
 
   loadRecordData () {
@@ -244,11 +273,15 @@ export default class PsEasyPostTracker extends LightningElement {
       this.initialized = true;
 
       this.dispatchEvent(new CustomEvent('refreshview'));
-    }
+    } 
+    else if (resp.error != null && resp.error.message == 'A duplicate request is currently in-flight')
+    {
+
+    } 
     else
     {
       this.errorMsg = 'Error occurred loading tracking data';
-      
+
       const event = new ShowToastEvent ({
         title: resp.code,
         message: resp.error.message,
@@ -272,6 +305,7 @@ export default class PsEasyPostTracker extends LightningElement {
 
   refresh () {
     console.log ('refresh the data...');
+
     this.initialized = false;
     //this.loadTrackerData ();
 
@@ -282,6 +316,7 @@ export default class PsEasyPostTracker extends LightningElement {
       .catch (error => {
         this.handleError (error);
       });
+
   }
 
   handleToggleSection (event) {
