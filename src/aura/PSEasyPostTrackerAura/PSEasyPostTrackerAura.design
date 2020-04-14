@@ -1,0 +1,8 @@
+<design:component >
+    <design:attribute name="loadingMessage" label="Message for loading tracking data" />
+    <design:attribute name="trackFieldName" label="Tracking ID Field API Name" />
+    <design:attribute name="carrierFieldName" label="Carrier Field API Name"  />
+    <design:attribute name="showDetails" label="Show tracking details?"  />
+    <design:attribute name="handlerName" label="Handler implementation class name" />
+ 
+</design:component>

@@ -18,8 +18,8 @@
             <property name="showDetails" type="Boolean" label="Show tracking details?"/>
             <property name="handlerName" type="String" label="Handler implementation class name"/>
             <supportedFormFactors>
-                <supportedFormFactor type="Small" />
-                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small"/>
+                <supportedFormFactor type="Large"/>
             </supportedFormFactors>
         </targetConfig>
     </targetConfigs>

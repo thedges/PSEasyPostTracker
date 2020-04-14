@@ -11,7 +11,7 @@ export default class PsEasyPostTracker extends LightningElement {
   @api trackFieldName = '';
   @api carrierFieldName = '';
   @api showDetails = false;
-  @api handlerName = 'PSEasyPostTestHandler';
+  @api handlerName;
   @track initialized = false;
   @track data;
   @track errorMsg = null;
@@ -53,6 +53,8 @@ export default class PsEasyPostTracker extends LightningElement {
 
   loadRecordData () {
     console.log ('loadRecordData...');
+    console.log('recordId=' + this.recordId);
+
     return getRecordData ({
       recordId: this.recordId,
       trackFieldName: this.trackFieldName,
@@ -84,6 +86,9 @@ export default class PsEasyPostTracker extends LightningElement {
       console.log ('data=' + result);
 
       const resp = JSON.parse (result);
+
+      if (resp.error == null)
+      {
 
       ////////////////////////////////////////////////
       // build JSON structure to render status page //
@@ -237,6 +242,9 @@ export default class PsEasyPostTracker extends LightningElement {
       this.data = info;
 
       this.initialized = true;
+
+      this.dispatchEvent(new CustomEvent('refreshview'));
+    }
     });
     /*
       .catch (error => {
